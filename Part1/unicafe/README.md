@@ -1,12 +1,48 @@
-# React + Vite
+# Unicafe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is part of the Full Stack Open course by the University of Helsinki. It is a simple React application for managing feedback statistics.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Collect feedback for three categories: good, neutral, and bad.
+- Display statistics including total feedback, average score, and positive feedback percentage.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- JavaScript
+- CSS
+
+## Getting Started
+
+1. Clone the repository:
+    ```bash
+    git clone <repository-url>
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd unicafe
+    ```
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
+4. Start the development server:
+    ```bash
+    npm start
+    ```
+
+## Project Structure
+
+- `src/`: Contains the source code.
+  - `components/`: Reusable React components.
+  - `App.js`: Main application component.
+  - `index.js`: Entry point of the application.
+
+## Learn More
+
+This project is part of the [Full Stack Open](https://fullstackopen.com/) course. Check out the course for more details.
+
+## License
+
+This project is licensed under the MIT License.
