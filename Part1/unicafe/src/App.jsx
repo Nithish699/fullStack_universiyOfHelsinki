@@ -14,9 +14,12 @@ const Button=({onClick,name})=>{
 
 const StatisticLine=({text,value})=>{
   return(
-  <div>
-  <span>{text} {value}</span>
-  </div>
+  
+  <tr> 
+    <td style={{ paddingRight: '10px' }}>{text}</td> 
+    <td>{value}</td>
+  </tr>
+    
 )
 }
 
@@ -31,17 +34,21 @@ const Statistics=({good,neutral,bad})=>{
       </div>
     )
   }
-  return(
-  <div> 
-  <h2>statistics</h2>  
-  <StatisticLine text="good" value ={good} />
-  <StatisticLine text="neutral" value ={neutral} />
-  <StatisticLine text="bad" value ={bad} />
-  <span>all {all}</span> <br />
-  <span>average {average}</span> <br />
-  <span>positive {positivePrcnt} %</span>
-  </div>
-  )
+  return (
+    <div>
+      <h2>statistics</h2>
+      <table style={{ borderCollapse: 'collapse', width: 'auto' }} >
+        <tbody>
+          <StatisticLine text="good" value={good} />
+          <StatisticLine text="neutral" value={neutral} />
+          <StatisticLine text="bad" value={bad} />
+          <StatisticLine text="all" value={all} />
+          <StatisticLine text="average" value={average} />
+          <StatisticLine text="positive" value={`${positivePrcnt} %`} />
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 const App = () => {
