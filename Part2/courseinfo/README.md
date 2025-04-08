@@ -1,4 +1,4 @@
-# Courseinfo Application
+# Part 2: Courseinfo Application
 
 This project is part of the Full Stack Open course by the University of Helsinki. It demonstrates the basics of React by building a simple course information application.
 
@@ -19,9 +19,9 @@ This project is part of the Full Stack Open course by the University of Helsinki
     ```bash
     git clone <repository-url>
     ```
-2. Navigate to the project directory:
+2. Navigate to the Part 2 project directory:
     ```bash
-    cd courseinfo
+    cd Part2/courseinfo
     ```
 3. Install dependencies:
     ```bash
@@ -29,7 +29,7 @@ This project is part of the Full Stack Open course by the University of Helsinki
     ```
 4. Start the development server:
     ```bash
-    npm start
+    npm run dev
     ```
 
 ## License
