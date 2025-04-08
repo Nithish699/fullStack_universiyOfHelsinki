@@ -4,13 +4,13 @@ This project is part of the Full Stack Open course by the University of Helsinki
 
 ## Features
 
-- Display course details including parts and exercises.
-- Calculate and display the total number of exercises.
+- Display course details, including parts and exercises.
+- Calculate and display the total number of exercises dynamically.
 
 ## Technologies Used
 
 - React
-- JavaScript
+- JavaScript (ES6+)
 - HTML/CSS
 
 ## Getting Started
@@ -34,4 +34,4 @@ This project is part of the Full Stack Open course by the University of Helsinki
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
