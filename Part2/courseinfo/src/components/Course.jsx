@@ -26,7 +26,14 @@ const Total=({total}) => {
   )
 }
 const Course = ({course}) => {
-  const total = course.parts.reduce((sum, part) => sum + part.exercises, 0);
+  const total = course.parts.reduce((sum, part) => {
+    console.log('what is happening', sum, part);
+    return sum + part.exercises;
+  }, 0);
+  
+  console.log('Final total:', total);
+
+
   return(
     <div>
   <Header name={course.name} />
