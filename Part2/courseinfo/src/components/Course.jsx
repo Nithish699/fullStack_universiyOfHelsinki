@@ -13,17 +13,25 @@ const Part = ({ name, exercises }) => {
 const Content = ({ parts }) => {
   return (
     <div>
-      <Part name={parts[0].name} exercises={parts[0].exercises} />
-      <Part name={parts[1].name} exercises={parts[1].exercises} />
-      <Part name={parts[2].name} exercises={parts[2].exercises} />
+      {parts.map((part) => (
+        <Part key={part.id} name={part.name} exercises={part.exercises} />
+      ))}
     </div>
   )
 }
+ 
+const Total=({total}) => {
+  return (
+    <p><b> total of { total} exercises </b></p>
+  )
+}
 const Course = ({course}) => {
+  const total = course.parts.reduce((sum, part) => sum + part.exercises, 0);
   return(
     <div>
   <Header name={course.name} />
   <Content parts={course.parts} />
+  <Total total ={total} />
   </div>
   )
 }
