@@ -30,6 +30,7 @@ const App = () => {
     const copy = [...votes]
     copy[selected] += 1 
     setVotes(copy)
+    log
   }
 
   const maxVotes = Math.max(...votes);
