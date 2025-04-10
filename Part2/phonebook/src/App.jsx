@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import Person from './components/Person'
 const App = () => {
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas' }
@@ -20,7 +20,7 @@ const App = () => {
     console.log('added name: '+newName); 
     console.log(persons);         
   }
-  console.log(persons); 
+  
 
   return (
     <div>                         
@@ -36,10 +36,8 @@ const App = () => {
       <h2>Numbers</h2>
       <ul>
         { persons.map(person =>        (
-          <li key={person.name}> 
-          {person.name}
-          </li>
-        ))}
+          <Person key={person.name} person={person.name} /> 
+          ))}
       </ul>
     </div>
   )
