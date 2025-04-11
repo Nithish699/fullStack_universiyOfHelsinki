@@ -7,7 +7,7 @@ This is a simple phonebook application built as part of the Full Stack Open cour
 - Add new contacts with a name and phone number.
 - Prevent duplicate entries for the same name.
 - Search for contacts by name.
-- Delete contacts from the phonebook.
+
 
 ## Technologies Used
 
