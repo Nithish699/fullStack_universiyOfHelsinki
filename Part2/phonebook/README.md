@@ -1,12 +1,50 @@
-# React + Vite
+# Phonebook Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple phonebook application built as part of the Full Stack Open course (Part 2). The application allows users to manage a list of contacts, including adding, deleting, and searching for phone numbers.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add new contacts with a name and phone number.
+- Prevent duplicate entries for the same name.
+- Search for contacts by name.
+- Delete contacts from the phonebook.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React
+- **Backend**: Node.js, Express
+
+
+## Getting Started
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/phonebook.git
+    cd phonebook
+    ```
+
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3. Start the development server:
+    ```bash
+    npm run dev
+    ```
+
+
+
+## Project Structure
+
+- `/src`: Contains React components and application logic.
+- `/public`: Static files for the frontend.
+- `/db.json`: Mock database for storing contacts.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+This project is part of the [Full Stack Open](https://fullstackopen.com/) course by the University of Helsinki.
