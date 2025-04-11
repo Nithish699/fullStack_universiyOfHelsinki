@@ -39,7 +39,7 @@ This is a simple phonebook application built as part of the Full Stack Open cour
 
 - `/src`: Contains React components and application logic.
 - `/public`: Static files for the frontend.
-- `/db.json`: Mock database for storing contacts.
+
 
 ## License
 
