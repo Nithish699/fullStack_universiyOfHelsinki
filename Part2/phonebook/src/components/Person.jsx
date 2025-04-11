@@ -1,4 +1,4 @@
 const Person =({person}) =>
-<li>{person}</li>
+<li>{`${person.name} ${person.number}`}</li>
 
 export default Person;
