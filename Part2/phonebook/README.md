@@ -7,13 +7,14 @@ This is a simple phonebook application built as part of the Full Stack Open cour
 - Add new contacts with a name and phone number.
 - Prevent duplicate entries for the same name.
 - Search for contacts by name.
-
+- Delete existing contacts from the phonebook.
+- Display a notification for successful or failed operations.
 
 ## Technologies Used
 
-- **Frontend**: React
+- **Frontend**: React, Axios for HTTP requests
 - **Backend**: Node.js, Express
-
+- **Database**: JSON Server (for development)
 
 ## Getting Started
 
@@ -33,13 +34,18 @@ This is a simple phonebook application built as part of the Full Stack Open cour
     npm run dev
     ```
 
-
+4. Start the JSON Server for backend:
+    ```bash
+    npm run server
+    ```
 
 ## Project Structure
 
 - `/src`: Contains React components and application logic.
+  - `/components`: Reusable React components.
+  - `/services`: Contains modules for handling API requests.
 - `/public`: Static files for the frontend.
-
+- `/db.json`: Mock database for development.
 
 ## License
 
@@ -47,4 +53,4 @@ This project is licensed under the MIT License.
 
 ## Acknowledgments
 
-This project is part of the [Full Stack Open](https://fullstackopen.com/) course by the University of Helsinki.
+This project is part of the [Full Stack Open](https://fullstackopen.com/) course by the University of Helsinki. Special thanks to the course instructors for their guidance and resources.
