@@ -53,11 +53,17 @@ const filteredPersons = persons
       
     } else {
       const nameObject = { name: newName, number: newNumber,id: persons.length+1 }; 
-      setPersons(persons.concat(nameObject));
-      setNewName('');
-      setNewNumber('');
-      console.log(`added name: ${newName}, added number: ${newNumber}`);
-      console.log(persons);
+      axios
+      .post('http://localhost:3001/persons', nameObject)
+      .then(response => {
+        setPersons(persons.concat(response.data));
+        setNewName('');
+        setNewNumber('');
+        console.log(`Added name: ${newName}, added number: ${newNumber}`);
+      })
+      .catch(error => {
+        console.error('Error adding person:', error);
+      });
     }
   };
 
