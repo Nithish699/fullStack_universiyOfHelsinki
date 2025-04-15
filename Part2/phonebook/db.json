@@ -3,27 +3,43 @@
     {
       "name": "Arto Hellas",
       "number": "040-123456",
-      "id": "1"
+      "id": 1
     },
-    {
-      "name": "Ada Lovelace",
-      "number": "39-44-5323523",
-      "id": "2"
-    },
+    
     {
       "name": "Dan Abramov",
       "number": "12-43-234345",
-      "id": "3"
+      "id": 3
     },
     {
       "name": "Mary Poppendieck",
       "number": "39-23-6423122",
-      "id": "4"
+      "id": 4
     },
     {
       "id": 5,
       "name": "nithish",
       "number": "6364223344"
+    },
+    {
+      "id": 6,
+      "name": "kodnest",
+      "number": "0830944"
+    },
+    {
+      "id": 7,
+      "name": "dxxag",
+      "number": "782392"
+    },
+    {
+      "id": 8,
+      "name": "mgsx",
+      "number": "030222"
+    },
+    {
+      "id": 9,
+      "name": "kohli",
+      "number": "181181818118"
     }
   ]
 }

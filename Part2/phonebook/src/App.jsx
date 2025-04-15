@@ -2,27 +2,63 @@ import { useState, useEffect } from 'react'
 import Filter from './components/Filter';
 import PersonForm from './components/PersonForm';
 import Numbers from './components/Numbers';
-import axios from 'axios';
+import personsService from './services/persons';
 
 const App = () => {
 
   const [persons, setPersons] = useState([]) ;
-
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
   const [filter, setFilter] = useState('');
   
   useEffect(() => {
-    console.log('effect')
-    axios
-      .get('http://localhost:3001/persons')
-      .then(response => {
-        console.log('promise fulfilled')
-        setPersons(response.data);
-        })
-  }, [])
+    personsService
+      .getAll()
+      .then(initialPersons => {
+        setPersons(initialPersons);
+      })
+      .catch(error => {
+        console.error('Error fetching persons:', error);
+      });
+  }, []);  
   
-  console.log('render', persons.length, 'persons')
+
+  const nameCheck = (newName, newNumber) => {
+    if (persons.some(person => person.name === newName)) {
+      alert(`${newName} is already added to phonebook`);
+      
+    } else {
+      const nameObject = { name: newName, number: newNumber,id: persons.length+1 }; 
+      personsService
+        .create(nameObject)
+        .then(returnedPerson => {
+          setPersons(persons.concat(returnedPerson));
+          setNewName('');
+          setNewNumber('');
+          console.log(`Added name: ${newName}, added number: ${newNumber}`);
+        })
+      .catch(error => {
+        console.error('Error adding person:', error);
+      });
+    }
+  };
+
+  const handleDelete = (id, name) => {
+    if (window.confirm(`Delete ${name}?`)) {
+      personsService
+        .remove(id)
+        .then(() => {
+          setPersons(persons.filter(person => person.id !== id));
+          console.log(`${name} deleted successfully`);
+        })
+        .catch(error => {
+          console.error(`Error deleting ${name}:`, error);
+          alert(`The person '${name}' was already removed from the server.`);
+          // Remove the person from the UI even if the backend deletion fails
+          setPersons(persons.filter(person => person.id !== id));
+        });
+    }
+  };
 
   const addName = (event) =>{
     event.preventDefault();    
@@ -31,11 +67,9 @@ const App = () => {
 
   const handleNameChange=(event) =>{
     setNewName(event.target.value)
-    console.log(event.target.value)
   };
   const handleNumberChange=(event) =>{
     setNewNumber(event.target.value)
-    console.log(event.target.value)
   };
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
@@ -47,25 +81,7 @@ const filteredPersons = persons
       )
     : [];
 
-  const nameCheck = (newName, newNumber) => {
-    if (persons.some(person => person.name === newName)) {
-      alert(`${newName} is already added to phonebook`);
-      
-    } else {
-      const nameObject = { name: newName, number: newNumber,id: persons.length+1 }; 
-      axios
-      .post('http://localhost:3001/persons', nameObject)
-      .then(response => {
-        setPersons(persons.concat(response.data));
-        setNewName('');
-        setNewNumber('');
-        console.log(`Added name: ${newName}, added number: ${newNumber}`);
-      })
-      .catch(error => {
-        console.error('Error adding person:', error);
-      });
-    }
-  };
+
 
   return (
     <div>                         
@@ -80,7 +96,10 @@ const filteredPersons = persons
         handleNumberChange={handleNumberChange} 
       />
       <h2>Numbers</h2>
-      <Numbers filteredPersons={filteredPersons} />
+      <Numbers 
+      filteredPersons={filteredPersons}
+      handleDelete={handleDelete}
+       />
     </div>
   )
 }
