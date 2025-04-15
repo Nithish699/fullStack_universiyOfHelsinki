@@ -28,7 +28,7 @@ const App = () => {
       alert(`${newName} is already added to phonebook`);
       
     } else {
-      const nameObject = { name: newName, number: newNumber,id: persons.length+1 }; 
+      const nameObject = { name: newName, number: newNumber }; 
       personsService
         .create(nameObject)
         .then(returnedPerson => {
