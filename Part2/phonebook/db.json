@@ -1,11 +1,6 @@
 {
   "persons": [
     {
-      "name": "Arto Hellas",
-      "number": "040-123456",
-      "id": "1"
-    },
-    {
       "name": "Dan Abramov",
       "number": "12-43-234345",
       "id": "3"
@@ -16,24 +11,19 @@
       "id": "4"
     },
     {
-      "id": "60de",
-      "name": "nithish",
-      "number": "1234"
+      "id": "03c1",
+      "name": "sowndarya",
+      "number": "122121"
     },
     {
-      "id": "7851",
-      "name": "kodnest",
-      "number": "11111"
+      "id": "71bc",
+      "name": "huhuhuh",
+      "number": "12112"
     },
     {
-      "id": "209b",
-      "name": "abs",
+      "id": "903a",
+      "name": "kshllk",
       "number": "111"
-    },
-    {
-      "id": "7b53",
-      "name": "skmklmk",
-      "number": "222"
     }
   ]
 }

@@ -2,11 +2,26 @@
     height: 30px;
     width: fit-content;
     padding: 0 20px;
-    color: rgb(0, 128, 0);
+    color: rgb(6, 114, 255);
     font-size: 16px;
     font-weight: bold;
     margin: 10px 0;
     border: 3px solid red;
     display: flex;
     align-items: center;
+    background-color: lightgray;
+    }
+
+.errorMessage {
+    height: 30px;
+    width: fit-content;
+    padding: 0 20px;
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0;
+    border: 3px solid red;
+    display: flex;
+    align-items: center;
+    background-color: lightgrey;
     }

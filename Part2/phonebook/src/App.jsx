@@ -4,6 +4,7 @@ import PersonForm from './components/PersonForm';
 import Numbers from './components/Numbers';
 import personsService from './services/persons';
 import AddedMessage from './components/AddedMessage';
+import UpdateError from './components/UpdateError';
 
 const App = () => {
 
@@ -12,6 +13,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('');
   const [filter, setFilter] = useState('');
   const [addMessage, setAddMessage] = useState(null);
+  const [updateError, setUpdateError] = useState(null);
   
   useEffect(() => {
     personsService
@@ -43,10 +45,11 @@ const App = () => {
             console.log(`Updated number for ${newName}`);
           })
           .catch(error => {
-            console.error('Error updating person:', error);
-            
-            alert(`Information of ${newName} might have been removed from the server.`);
-            
+            // console.error('Error updating person:', error); 
+            setUpdateError(`Information of ${newName} might have been removed from the server.`)                    
+            setNewName('');
+            setNewNumber('');
+            setTimeout(()=>setUpdateError(null),3000);
             setPersons(persons.filter(p => p.id !== existingPerson.id));
           });
       }
@@ -64,7 +67,7 @@ const App = () => {
           setPersons(persons.concat(returnedPerson));
           setNewName('');
           setNewNumber('');
-          setAddMessage(`'${newName}' added sucessfully`)
+          setAddMessage(`added ${newName}`)
           setTimeout(() => {
             setAddMessage(null);
           }, 3000);
@@ -120,6 +123,7 @@ const filteredPersons = persons
     <div>                         
       <h2>Phonebook</h2>
       <AddedMessage message={addMessage}/>
+      <UpdateError errorMessage={updateError}/>
       <Filter filter={filter} handleFilterChange={handleFilterChange} />
       <h2>add a new</h2>
       <PersonForm 
