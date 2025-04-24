@@ -3,6 +3,7 @@ import Filter from './components/Filter';
 import PersonForm from './components/PersonForm';
 import Numbers from './components/Numbers';
 import personsService from './services/persons';
+import AddedMessage from './components/AddedMessage';
 
 const App = () => {
 
@@ -10,6 +11,7 @@ const App = () => {
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
   const [filter, setFilter] = useState('');
+  const [addMessage, setAddMessage] = useState(null);
   
   useEffect(() => {
     personsService
@@ -26,7 +28,7 @@ const App = () => {
   const nameCheck = (newName, newNumber) => {
     const existingPerson = persons.find(person => person.name === newName);
     if (existingPerson) {
-      // Name already exists, ask to update number
+      
       if (window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
         const updatedPerson = { ...existingPerson, number: newNumber };
 
@@ -42,9 +44,9 @@ const App = () => {
           })
           .catch(error => {
             console.error('Error updating person:', error);
-            // Handle potential errors, e.g., person already deleted
+            
             alert(`Information of ${newName} might have been removed from the server.`);
-            // Optionally refresh the list or remove the person from the state
+            
             setPersons(persons.filter(p => p.id !== existingPerson.id));
           });
       }
@@ -62,6 +64,10 @@ const App = () => {
           setPersons(persons.concat(returnedPerson));
           setNewName('');
           setNewNumber('');
+          setAddMessage(`'${newName}' added sucessfully`)
+          setTimeout(() => {
+            setAddMessage(null);
+          }, 3000);
           console.log(`Added name: ${newName}, added number: ${newNumber}`);
         })
       .catch(error => {
@@ -113,6 +119,7 @@ const filteredPersons = persons
   return (
     <div>                         
       <h2>Phonebook</h2>
+      <AddedMessage message={addMessage}/>
       <Filter filter={filter} handleFilterChange={handleFilterChange} />
       <h2>add a new</h2>
       <PersonForm 

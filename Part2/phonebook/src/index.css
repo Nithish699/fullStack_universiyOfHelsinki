@@ -1,0 +1,12 @@
+.addMessage {
+    height: 30px;
+    width: fit-content;
+    padding: 0 20px;
+    color: rgb(0, 128, 0);
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0;
+    border: 3px solid red;
+    display: flex;
+    align-items: center;
+    }
