@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 
-const api_key = import.meta.env.VITE_SOME_KEY
+const api_key = import.meta.env.VITE_API_KEY
 
 const App = () =>{
 const [country, setcountry] = useState('')
