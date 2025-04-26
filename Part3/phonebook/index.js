@@ -66,7 +66,12 @@ app.post('/api/persons', (request, response) => {
       error: 'name or number is missing from the body' 
     });
   }
-
+  if (persons.some(person => person.name === body.name)) {
+    console.log('error: name already exists');
+    return response.status(400).json({
+      error: 'name must be unique'
+    });
+  }
   const addPerson = {
     id: Math.floor(Math.random() * 1000000), // Generate a random id
     name: body.name,
