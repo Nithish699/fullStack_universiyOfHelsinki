@@ -32,6 +32,19 @@ app.get('/api/persons',(request,response) => {
     
 })
 
+app.get('/api/persons/:id',(request, response)=>{
+  const id = request.params.id;
+  const person=persons.find(person => person.id === String(id));
+  if(person) {
+    response.json(person);
+    console.log(person)
+  }
+  else {
+    response.status(404).send(`<h1>404 </h1><h3>page not found error</h3>person info for <b>id:${id}</b> not found in serve`);
+    console.log('info not found')
+  }  
+})
+
 app.get('/info',(request,response)=>{
     const length = persons.length;
     const date = new Date();
