@@ -57,8 +57,28 @@ app.get('/api/persons/:id',(request, response)=>{
 
 })
 
-app.delete('/api/persons/:id',(request,response)=>{
+app.post('/api/persons', (request, response) => {
+  const body = request.body;
 
+  if (!body.name || !body.number){
+    console.log('error while adding the person');    
+    return response.status(400).json({ 
+      error: 'name or number is missing from the body' 
+    });
+  }
+
+  const addPerson = {
+    id: Math.floor(Math.random() * 1000000), // Generate a random id
+    name: body.name,
+    number: body.number
+  };
+
+  persons = persons.concat(addPerson);
+  response.json(addPerson);
+  console.log(`Added new person: ${JSON.stringify(addPerson)}`);
+});
+
+app.delete('/api/persons/:id',(request,response)=>{
   const id = request.params.id;
   const person = persons.find(person => person.id ==id);
 
