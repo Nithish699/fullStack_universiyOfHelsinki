@@ -1,8 +1,15 @@
 const express = require('express')
+const morgan = require('morgan')
 const app =express();
 
 app.use(express.json())
-app.use(morgan);
+
+morgan.token('body', (req) => {
+  return req.method === 'POST' ? JSON.stringify(req.body) : '';
+});
+const customMorganFormat = ':method :url :status :res[content-length] - :response-time ms :body';
+
+app.use(morgan(customMorganFormat));
 
 const requestLogger = (request, response, next) => {
   console.log('Method:', request.method)
@@ -90,6 +97,7 @@ app.post('/api/persons', (request, response) => {
 
   persons = persons.concat(addPerson);
   response.json(addPerson);
+  
   console.log(`Added new person: ${JSON.stringify(addPerson)}`);
 });
 
